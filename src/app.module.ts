@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { NotificationsModule } from './notifications/notifications.module';
 import { ConfigModule } from '@nestjs/config';
+import { AppService } from "./app.service";
 
 
 @Module({
@@ -14,11 +15,13 @@ import { ConfigModule } from '@nestjs/config';
             username: 'postgres', 
             password: 'pYnsrbxCQfVpQmXzbbIzKrqGOiYyfruc',    
             database: 'railway',
+            entities: [__dirname + '/**/*.entity{.ts,.js}'],
             autoLoadEntities: true,
             synchronize: true,
         }),
 
-        NotificationsModule,
-    ],
+        NotificationsModule],
+    controllers: [AbortController],
+    providers: [AppService],
 })
  export class AppModule{}
