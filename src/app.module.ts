@@ -11,17 +11,17 @@ import { AppService } from "./app.service";
         TypeOrmModule.forRoot({
             type: 'postgres',
             url: process.env.DATABASE_URL,
-            port: 5432,
+            port: 5432,
             username: 'postgres', 
-            password: 'pYnsrbxCQfVpQmXzbbIzKrqGOiYyfruc',    
+            password: 'pYnsrbxCQfVpQmXzbbIzKrqGOiYyfruc', 
             database: 'railway',
             entities: [__dirname + '/**/*.entity{.ts,.js}'],
-            autoLoadEntities: true,
+            autoLoadEntities: true,
             synchronize: true,
         }),
 
         NotificationsModule],
-    controllers: [AbortController],
+    controllers: [],
     providers: [AppService],
 })
  export class AppModule{}
